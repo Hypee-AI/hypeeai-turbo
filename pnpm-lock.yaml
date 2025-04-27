@@ -35,6 +35,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/shadcn-ui':
+        specifier: workspace:*
+        version: link:../../packages/shadcn-ui
       '@tanstack/react-query':
         specifier: ^5.66.0
         version: 5.67.3(react@18.3.1)

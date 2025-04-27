@@ -1,0 +1,39 @@
+---
+description: |
+  Core monorepo guidelines and global patterns enforced throughout the entire Turbo monorepo,
+  covering architecture principles, import conventions, shared type definitions, coding standards,
+  dependency management, and CI/CD processes.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+- **Monorepo Philosophy – Single Source of Truth**:  
+  All shared utilities, types, and configurations reside under `packages/shared/` to avoid duplication and ensure consistency across packages.
+
+- **Monorepo Philosophy – Package Isolation**:  
+  Each workspace (`apps/web`, `apps/server`) maintains its own `package.json`; dependencies must be declared per-workspace to prevent cross-contamination.
+
+- **Architecture Principles**:  
+  Maintain a layered structure—Next.js frontend in `apps/web`, FastAPI backend in `apps/server`, shared code in `packages/shared`—and never import directly across workspaces.
+
+- **Import Conventions**:  
+  Always use absolute imports via workspace aliases (e.g., `@shared/utils/date`) and never traverse out of `src/` with deep relative paths (e.g., `../../../shared`).
+
+- **Shared Type Definitions**:  
+  Define all common TypeScript interfaces and enums in `packages/shared/src/types/`. Bump the shared package version for any type changes and update dependents accordingly.
+
+- **Coding Style & Conventions**:  
+  - Filenames and directories: `kebab-case`  
+  - React components and classes: `PascalCase`  
+  - Functions and variables: `camelCase`  
+  Adhere to the Prettier and ESLint configurations in the root `config/` directory.
+
+- **Dependency Management**:  
+  Leverage Turborepo’s root-level `node_modules` for hoisted dependencies. Pin all workspace dependencies to exact versions (no `^` or `~`) for reproducible builds.
+
+- **CI/CD & Scripts**:  
+  Centralize build, lint, and test scripts in the root `scripts/` directory. Standardize on `pnpm` for all package management commands.
+
+- **Onboarding & Documentation**:  
+  Maintain a root `README.md` with an overview of the monorepo structure and setup steps. Each workspace (`apps/web`, `apps/server`, `packages/shared`) must also include its own `README.md` detailing purpose and local development commands.
