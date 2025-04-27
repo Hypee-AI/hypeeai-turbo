@@ -17,7 +17,7 @@ const fontMono = Geist_Mono({
 export const metadata = {
   title: '[App Name]',
   description:
-    'This is a Rumsan sample app. Update this description for SEO friendliness.',
+    'This is a HypeeAI app. Update this description for SEO friendliness.',
 };
 
 export default function RootLayout({
