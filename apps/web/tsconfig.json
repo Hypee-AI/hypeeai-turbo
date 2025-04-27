@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@rumsan/shadcn-ui/*": ["../../packages/shadcn-ui/src/*"]
+      "@repo/shadcn-ui/*": ["../../packages/shadcn-ui/src/*"]
     }
   },
   "include": [

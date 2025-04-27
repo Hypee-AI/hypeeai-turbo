@@ -1,10 +1,10 @@
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 import * as React from 'react';
 
-import { ButtonProps, buttonVariants } from '@rumsan/shadcn-ui/components/button';
-import { cn } from '@rumsan/shadcn-ui/lib/utils';
+import { ButtonProps, buttonVariants } from '@repo/shadcn-ui/components/button';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
-const Pagination = ({className, ...props}: React.ComponentProps<'nav'>) => (
+const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
     role="navigation"
     aria-label="pagination"
@@ -17,7 +17,7 @@ Pagination.displayName = 'Pagination';
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<'ul'>
->(({className, ...props}, ref) => (
+>(({ className, ...props }, ref) => (
   <ul
     ref={ref}
     className={cn('flex flex-row items-center gap-1', className)}
@@ -29,7 +29,7 @@ PaginationContent.displayName = 'PaginationContent';
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<'li'>
->(({className, ...props}, ref) => (
+>(({ className, ...props }, ref) => (
   <li ref={ref} className={cn('', className)} {...props} />
 ));
 PaginationItem.displayName = 'PaginationItem';
@@ -113,6 +113,5 @@ export {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious
+  PaginationPrevious,
 };
-

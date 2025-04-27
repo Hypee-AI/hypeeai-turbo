@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@rumsan/shadcn-ui/components/button';
+import { Button } from '@repo/shadcn-ui/components/button';
 import { useRouter } from 'next/navigation';
 
 export default function Page() {

@@ -1,39 +1,108 @@
-# shadcn/ui monorepo template
+# Turbo Seed - Monorepo Template
 
-This template is for creating a monorepo with shadcn/ui, nextjs app and nestjs app.
+A comprehensive monorepo template built with Turborepo for building full-stack applications using Next.js and NestJS with shadcn/ui components.
 
-## Usage
+## Features
+
+- 📦 [Turborepo](https://turbo.build/) for fast, efficient builds and dependency management
+- 🎨 [shadcn/ui](https://ui.shadcn.com/) components pre-configured
+- ⚛️ [Next.js](https://nextjs.org/) for frontend applications
+- 🦅 [NestJS](https://nestjs.com/) for backend services
+- 📚 Shared packages for common code and utilities
+- 🔄 [Changesets](https://github.com/changesets/changesets) for version management
+- 🧩 Typescript configured across all packages
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/) (v18 or higher)
+- [pnpm](https://pnpm.io/) (v8 or higher)
+
+### Installation
 
 ```bash
+# Install dependencies
+pnpm install
+```
+
+### Development
+
+```bash
+# Run all apps and packages in development mode
 pnpm run dev
+
+# Run a specific app or package
+pnpm run dev --filter=web
+pnpm run dev --filter=api
 ```
 
-## Adding libraries
-
-- Create package.json as show in sdk folder (Change the name as required)
-  - Take note of the following. These are what gets imported in the applications.
+## Project Structure
 
 ```
-  - "main": "./dist/index.js",
-  - "types": "./dist/index.d.ts",
+.
+├── apps/                   # Application code
+│   ├── web/                # Next.js frontend
+│   └── api/                # NestJS backend
+├── packages/               # Shared packages
+│   ├── sdk/                # Shared utilities and types
+│   ├── eslint-config/      # ESLint configuration
+│   └── typescript-config/  # TypeScript configuration
+└── ...
 ```
 
-- Copy the tsconfig.json as shown (Add compilerOption as required)
+## Creating New Packages
 
-- Inside src folder, write your own logic.
+1. Create a new directory in the `packages/` folder
+2. Create a `package.json` with the following structure:
 
-NOTE:
+```json
+{
+  "name": "@yourscope/package-name",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "lint": "eslint src/",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+```
 
-- DONOT PLAY WITH ESLINT-CONFIG and TYPESCRIPT-CONFIG
+3. Copy the `tsconfig.json` from an existing package
+4. Create your source code in the `src/` directory
+5. Export everything through `src/index.ts`
 
-## Deploying NPM libraries
+## Publishing Packages
 
-- We are using changeset to manage the version management for packages.
+This repo uses [Changesets](https://github.com/changesets/changesets) to manage versions and publishing.
 
-- Login into npm from CLI
+```bash
+# Login to npm
+npm login
 
-- Make appropriate changes to the packages. Donot update the version in the packages.
+# Create a new changeset
+pnpm changeset
 
-- Mark `private: true` in package.json if you don't want to publish packages in npm.
+# Apply changesets to update versions
+pnpm changeset version
 
-- Then read the following doc to get familiar with [changeset] (https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md). This will help you to release the packages.
+# Publish packages
+pnpm changeset publish
+```
+
+> **Note:** Set `"private": true` in a package's `package.json` if you don't want to publish it to npm.
+
+## Important Notes
+
+- Do not modify the `eslint-config` and `typescript-config` packages unless you know what you're doing
+- Always use pnpm as the package manager to maintain consistency
+- Use the monorepo structure to your advantage by sharing code between applications
+
+## License
+
+MIT

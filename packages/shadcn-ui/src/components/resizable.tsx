@@ -3,7 +3,7 @@
 import { GripVertical } from 'lucide-react';
 import * as ResizablePrimitive from 'react-resizable-panels';
 
-import { cn } from '@rumsan/shadcn-ui/lib/utils';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 const ResizablePanelGroup = ({
   className,
@@ -43,4 +43,3 @@ const ResizableHandle = ({
 );
 
 export { ResizableHandle, ResizablePanel, ResizablePanelGroup };
-

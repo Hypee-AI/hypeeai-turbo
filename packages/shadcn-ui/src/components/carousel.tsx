@@ -3,11 +3,11 @@
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
-import {ArrowLeft, ArrowRight} from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import * as React from 'react';
 
-import {Button} from '@rumsan/shadcn-ui/components/button';
-import {cn} from '@rumsan/shadcn-ui/lib/utils';
+import { Button } from '@repo/shadcn-ui/components/button';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -153,8 +153,8 @@ Carousel.displayName = 'Carousel';
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({className, ...props}, ref) => {
-  const {carouselRef, orientation} = useCarousel();
+>(({ className, ...props }, ref) => {
+  const { carouselRef, orientation } = useCarousel();
 
   return (
     <div ref={carouselRef} className="overflow-hidden">
@@ -175,8 +175,8 @@ CarouselContent.displayName = 'CarouselContent';
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({className, ...props}, ref) => {
-  const {orientation} = useCarousel();
+>(({ className, ...props }, ref) => {
+  const { orientation } = useCarousel();
 
   return (
     <div
@@ -197,8 +197,8 @@ CarouselItem.displayName = 'CarouselItem';
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({className, variant = 'outline', size = 'icon', ...props}, ref) => {
-  const {orientation, scrollPrev, canScrollPrev} = useCarousel();
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
     <Button
@@ -226,8 +226,8 @@ CarouselPrevious.displayName = 'CarouselPrevious';
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({className, variant = 'outline', size = 'icon', ...props}, ref) => {
-  const {orientation, scrollNext, canScrollNext} = useCarousel();
+>(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
     <Button

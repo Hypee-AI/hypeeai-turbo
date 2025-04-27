@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@rumsan/shadcn-ui"],
-}
+  transpilePackages: ['@repo/shadcn-ui'],
+};
 
-export default nextConfig
+export default nextConfig;

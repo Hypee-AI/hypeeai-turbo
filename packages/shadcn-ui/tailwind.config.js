@@ -8,7 +8,7 @@ const config = {
     'layouts/**/*.{ts,tsx}',
     'hooks/**/*.{ts,tsx}',
     'sections/**/*.{ts,tsx}',
-    'node_modules/@rumsan/shadcn-ui/src/components/**/*.{ts,tsx}',
+    'node_modules/@repo/shadcn-ui/src/components/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {

@@ -1,1 +1,1 @@
-export { default } from "@rumsan/shadcn-ui/postcss.config";
+export { default } from '@repo/shadcn-ui/postcss.config';

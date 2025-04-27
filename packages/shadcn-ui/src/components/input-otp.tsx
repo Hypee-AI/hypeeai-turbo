@@ -1,10 +1,10 @@
 'use client';
 
-import {OTPInput, OTPInputContext, SlotProps} from 'input-otp';
-import {Minus} from 'lucide-react';
+import { OTPInput, OTPInputContext, SlotProps } from 'input-otp';
+import { Minus } from 'lucide-react';
 import * as React from 'react';
 
-import {cn} from '@rumsan/shadcn-ui/lib/utils';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 const InputOTP: React.ForwardRefExoticComponent<
   React.ComponentPropsWithoutRef<typeof OTPInput> &
@@ -12,7 +12,7 @@ const InputOTP: React.ForwardRefExoticComponent<
 > = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
   React.ComponentPropsWithoutRef<typeof OTPInput>
->(({className, containerClassName, ...props}, ref) => (
+>(({ className, containerClassName, ...props }, ref) => (
   <OTPInput
     ref={ref}
     containerClassName={cn(
@@ -28,17 +28,17 @@ InputOTP.displayName = 'InputOTP';
 const InputOTPGroup = React.forwardRef<
   React.ElementRef<'div'>,
   React.ComponentPropsWithoutRef<'div'>
->(({className, ...props}, ref) => (
+>(({ className, ...props }, ref) => (
   <div ref={ref} className={cn('flex items-center', className)} {...props} />
 ));
 InputOTPGroup.displayName = 'InputOTPGroup';
 
 const InputOTPSlot = React.forwardRef<
   React.ElementRef<'div'>,
-  React.ComponentPropsWithoutRef<'div'> & {index: number}
->(({index, className, ...props}, ref) => {
+  React.ComponentPropsWithoutRef<'div'> & { index: number }
+>(({ index, className, ...props }, ref) => {
   const inputOTPContext = React.useContext(OTPInputContext);
-  const {char, hasFakeCaret, isActive} = inputOTPContext.slots[
+  const { char, hasFakeCaret, isActive } = inputOTPContext.slots[
     index
   ] as SlotProps;
 
@@ -66,11 +66,11 @@ InputOTPSlot.displayName = 'InputOTPSlot';
 const InputOTPSeparator = React.forwardRef<
   React.ElementRef<'div'>,
   React.ComponentPropsWithoutRef<'div'>
->(({...props}, ref) => (
+>(({ ...props }, ref) => (
   <div ref={ref} role="separator" {...props}>
     <Minus />
   </div>
 ));
 InputOTPSeparator.displayName = 'InputOTPSeparator';
 
-export {InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot};
+export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot };

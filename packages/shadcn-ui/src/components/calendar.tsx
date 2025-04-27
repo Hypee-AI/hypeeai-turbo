@@ -1,20 +1,20 @@
 'use client';
 
-import {ChevronLeft, ChevronRight} from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import * as React from 'react';
-import {DayPicker} from 'react-day-picker';
+import { DayPicker } from 'react-day-picker';
 
-import {buttonVariants} from '@rumsan/shadcn-ui/components/button';
-import {cn} from '@rumsan/shadcn-ui/lib/utils';
+import { buttonVariants } from '@repo/shadcn-ui/components/button';
+import { cn } from '@repo/shadcn-ui/lib/utils';
 
 interface CustomComponents {
-  IconLeft?: React.ComponentType<{className?: string; [key: string]: any}>;
-  IconRight?: React.ComponentType<{className?: string; [key: string]: any}>;
+  IconLeft?: React.ComponentType<{ className?: string; [key: string]: any }>;
+  IconRight?: React.ComponentType<{ className?: string; [key: string]: any }>;
   // other custom components...
 }
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
-  classNames?: {[key: string]: string};
+  classNames?: { [key: string]: string };
   components?: CustomComponents;
 };
 
@@ -36,7 +36,7 @@ const Calendar: React.FC<CalendarProps> = ({
         caption_label: 'text-sm font-medium',
         nav: 'space-x-1 flex items-center',
         nav_button: cn(
-          buttonVariants({variant: 'outline'}),
+          buttonVariants({ variant: 'outline' }),
           'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
         ),
         nav_button_previous: 'absolute left-1',
@@ -53,7 +53,7 @@ const Calendar: React.FC<CalendarProps> = ({
             : '[&:has([aria-selected])]:rounded-md',
         ),
         day: cn(
-          buttonVariants({variant: 'ghost'}),
+          buttonVariants({ variant: 'ghost' }),
           'h-8 w-8 p-0 font-normal aria-selected:opacity-100',
         ),
         day_range_start: 'day-range-start',
@@ -70,10 +70,10 @@ const Calendar: React.FC<CalendarProps> = ({
         ...classNames,
       }}
       components={{
-        IconLeft: ({className, ...props}: {className?: string}) => (
+        IconLeft: ({ className, ...props }: { className?: string }) => (
           <ChevronLeft className={cn('h-4 w-4', className)} {...props} />
         ),
-        IconRight: ({className, ...props}: {className?: string}) => (
+        IconRight: ({ className, ...props }: { className?: string }) => (
           <ChevronRight className={cn('h-4 w-4', className)} {...props} />
         ),
         ...components,
@@ -85,4 +85,4 @@ const Calendar: React.FC<CalendarProps> = ({
 
 Calendar.displayName = 'Calendar';
 
-export {Calendar};
+export { Calendar };

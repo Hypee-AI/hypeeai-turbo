@@ -14,7 +14,7 @@
     "components": "@/components",
     "hooks": "@/hooks",
     "lib": "@/lib",
-    "utils": "@rumsan/shadcn-ui/lib/utils",
-    "ui": "@rumsan/shadcn-ui/components"
+    "utils": "@repo/shadcn-ui/lib/utils",
+    "ui": "@repo/shadcn-ui/components"
   }
 }

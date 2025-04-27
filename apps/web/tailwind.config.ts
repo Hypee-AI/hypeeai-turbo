@@ -1,4 +1,4 @@
-import config from '@rumsan/shadcn-ui/tailwind.config';
+import config from '@repo/shadcn-ui/tailwind.config';
 
 const contents = ['node_modules/@rumsan/ui/src/components/**/*.{ts,tsx}'];
 

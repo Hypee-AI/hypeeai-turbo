@@ -1,7 +1,7 @@
-import {Geist, Geist_Mono} from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 
-import {Providers} from '@/components/providers';
-import '@rumsan/shadcn-ui/globals.css';
+import { Providers } from '@/components/providers';
+import '@repo/shadcn-ui/globals.css';
 
 const fontSans = Geist({
   subsets: ['latin'],
