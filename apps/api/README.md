@@ -33,12 +33,14 @@ apps/api/
 ### 1. Install Dependencies
 
 Create a virtual environment
+
 ```bash
 uv venv
-source env/bin/activate
+source venv/bin/activate
 ```
 
 Install dependencies
+
 ```bash
 uv pip install -r pyproject.toml
 ```
@@ -58,10 +60,10 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ## 🔧 API Endpoints
 
-| Method | Path              | Description             |
-|:------:|:------------------|:------------------------|
-| GET    | `/`                | Welcome message         |
-| GET    | `/v1/ping/`        | Healthcheck (Ping-Pong) |
+| Method | Path        | Description             |
+| :----: | :---------- | :---------------------- |
+|  GET   | `/`         | Welcome message         |
+|  GET   | `/v1/ping/` | Healthcheck (Ping-Pong) |
 
 ---
 
@@ -104,6 +106,7 @@ Example `turbo.json`:
 ```
 
 Run:
+
 ```bash
 pnpm turbo run dev:api
 ```

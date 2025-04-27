@@ -11,6 +11,7 @@ A comprehensive monorepo template built with Turborepo for building full-stack a
 - 📚 Shared packages for common code and utilities
 - 🔄 [Changesets](https://github.com/changesets/changesets) for version management
 - 🧩 Typescript configured across all packages
+- 🐍 Python API with FastAPI support
 
 ## Getting Started
 
@@ -18,12 +19,20 @@ A comprehensive monorepo template built with Turborepo for building full-stack a
 
 - [Node.js](https://nodejs.org/en/) (v18 or higher)
 - [pnpm](https://pnpm.io/) (v8 or higher)
+- [Python](https://www.python.org/) (v3.11 or higher)
+- [uv](https://github.com/astral-sh/uv) (globally installed)
 
 ### Installation
 
 ```bash
-# Install dependencies
-pnpm install
+# Complete setup (installs JS dependencies, creates Python venv, and installs Python packages)
+pnpm run setup
+
+# Or install dependencies separately
+pnpm install                    # Install JS dependencies
+uv venv                         # Create Python virtual environment
+source .venv/bin/activate       # Activate virtual environment
+cd apps/api && uv pip install . # Install Python package dependencies
 ```
 
 ### Development
@@ -45,7 +54,6 @@ pnpm run dev --filter=api
 │   ├── web/                # Next.js frontend
 │   └── api/                # NestJS backend
 ├── packages/               # Shared packages
-│   ├── sdk/                # Shared utilities and types
 │   ├── eslint-config/      # ESLint configuration
 │   └── typescript-config/  # TypeScript configuration
 └── ...
